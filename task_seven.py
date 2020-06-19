@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def task_seven():
+def task_seven(steps=100):
     theta = np.linspace(0, 2*np.pi, 100)
     r = np.sqrt(25.0)
 
@@ -16,26 +16,22 @@ def task_seven():
     xx = [0]
     yy = [0]
 
-    new_theta = np.cumsum(np.random.uniform(0, 2*np.pi, size=100))
-    new_r = np.random.choice([0, 0.5, 1, ], 100)
+    new_theta = np.cumsum(np.random.uniform(0, 2*np.pi, size=steps))
+    new_r = np.random.choice([0, 0.5, 1, ], size=steps)
 
+    def in_range(x, y):
+        if (x*x) + (y*y) <= 25:
+            return x, y
+        return False, False
 
     for a, b in zip(new_theta, new_r):
         x_pos = b*np.cos(a)
         y_pos = b*np.sin(a)
-        xx.append(xx[-1] + x_pos)
-        yy.append(yy[-1] + y_pos)
+        main_x, main_y = in_range(xx[-1] + x_pos, yy[-1] + y_pos)
+        if main_x != False:
+            xx.append(main_x)
+            yy.append(main_y)
 
-
-    # xx = np.cumsum(xx)
-    # yy = np.cumsum(yy)
-
-    # def in_range(x, y, a, b):
-    #     if (x*x) + (y*y) <= 25:
-    #         return True
-    #     return False
-
-        
     ax.plot(xx, yy)
 
     ax.set_aspect(1)
@@ -48,3 +44,5 @@ def task_seven():
     plt.title('How to plot a circle with matplotlib ?', fontsize=8)
 
     plt.show()
+
+task_seven()
