@@ -43,4 +43,4 @@ def task_five_six(steps=100):
     plt.title('Task Five/Six', fontsize=8)
 
     plt.show()
-task_five_six(200)
+task_five_six(100)

@@ -9,9 +9,8 @@ args -  1) p (probability of going left)
         3) start (starting point) 
         4) steps (total steps to be taken)  
 '''
-def task_one(p, p_none=0, start, steps):
+def task_one(p, start, steps):
     
-    # probability = [p, 1 - p - p_none, p_none]
     x_axis = [start]
     y_axis = list(range(steps+1))
     for random_p in np.random.random(steps):
@@ -25,12 +24,12 @@ def task_one(p, p_none=0, start, steps):
 ## SCENARIO-1: HIGH PROBABILITY OF GOING LEFT
 #task_one(0.8, 0, 100)
 ## SCENARIO-2: HIGH PROBABILITY OF GOING RIGHT
-# task_one(0.2, 0, 100)
+task_one(0.2, 0, 100)
 
 ## SCENARIO-3: EQUAL PROBABILITY OF GOING LEFT AND RIGHT
-# task_one(0.5, 0, 100)
+#task_one(0.5, 0, 100)
 
 ## SCENARIO-4: ZERO PROBABILITY OF GOING RIGHT
-# task_one(1.0, 0, 100)
+#task_one(1.0, 0, 100)
 ## SCENARIO-5: ZERO PROBABILITY OF GOING LEFT
-# task_one(0.0, 0, 100)
+#task_one(0.0, 0, 100)

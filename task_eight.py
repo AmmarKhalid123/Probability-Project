@@ -76,9 +76,15 @@ def task_eight():
 
         r_one = np.random.uniform(0, 1, size=1)[0]
         r_two = np.random.uniform(0, 1, size=1)[0]
-
-    print('Coincide after', steps,'steps')
+    print('Both point started at ( {}, {}) and ( {}, {})'.format(round(point_one_x[0], 2), round(point_one_y[0], 2) , round(point_two_x[0], 2), round(point_two_y[0], 2)))
+    if steps <= 20000:
+        print('Coincide after', steps,'steps')
+    else:
+        print('Points did not coincide')
+    print('Both point ended at ( {}, {}) and ( {}, {})'.format(round(point_one_x[-1], 2), round(point_one_y[-1], 2), round(point_two_x[-1], 2), round(point_two_y[-1]), 2))
     
+
+    ## comment these two lines for animation 1/2
     ax.plot(point_one_x, point_one_y)
     ax.plot(point_two_x, point_two_y)
 
@@ -88,6 +94,7 @@ def task_eight():
 
     plt.title('Task Eight', fontsize=8)
 
+    ## uncomment below lines for animation 2/2
     # x_Adata, y_Adata, x_Bdata, y_Bdata = [], [], [], []
     # ln, = plt.plot(x_Adata, y_Adata, 'b-')
     # ln2, = plt.plot(x_Bdata, y_Bdata, 'r-')
